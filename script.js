@@ -1,0 +1,737 @@
+const scienceQuestions = [
+      ["What is the chemical symbol for water?", ["H2O", "CO2", "NaCl", "O2"], "H2O"],
+      ["Which planet is known as the Red Planet?", ["Mercury", "Venus", "Mars", "Jupiter"], "Mars"],
+      ["What gas do plants absorb from the atmosphere?", ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"], "Carbon dioxide"],
+      ["Which organ pumps blood through the body?", ["Liver", "Heart", "Kidney", "Lungs"], "Heart"],
+      ["What is the boiling point of water at sea level?", ["90C", "95C", "100C", "110C"], "100C"],
+      ["How many bones are in an adult human body?", ["196", "206", "216", "226"], "206"],
+      ["What is the nearest star to Earth?", ["Polaris", "Sirius", "The Sun", "Betelgeuse"], "The Sun"],
+      ["Which part of the cell contains DNA?", ["Nucleus", "Cytoplasm", "Membrane", "Ribosome"], "Nucleus"],
+      ["What is the chemical symbol for gold?", ["Au", "Ag", "Gd", "Go"], "Au"],
+      ["Which vitamin is mainly produced when skin is exposed to sunlight?", ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin K"], "Vitamin D"],
+      ["What force keeps planets in orbit around the Sun?", ["Magnetism", "Gravity", "Friction", "Pressure"], "Gravity"],
+      ["Which blood type is known as the universal donor?", ["AB+", "A+", "O-", "B+"], "O-"],
+      ["What is the largest organ in the human body?", ["Heart", "Liver", "Skin", "Lungs"], "Skin"],
+      ["Which gas is most abundant in Earth's atmosphere?", ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"], "Nitrogen"],
+      ["What is the speed of light approximately?", ["300,000 km/s", "30,000 km/s", "3,000 km/s", "3,000,000 km/s"], "300,000 km/s"],
+      ["Which scientist developed the theory of relativity?", ["Isaac Newton", "Albert Einstein", "Galileo", "Nikola Tesla"], "Albert Einstein"],
+      ["What is the pH value of pure water?", ["5", "6", "7", "8"], "7"],
+      ["Which planet has the most visible ring system?", ["Mars", "Saturn", "Neptune", "Venus"], "Saturn"],
+      ["What is the smallest unit of matter?", ["Molecule", "Atom", "Cell", "Electron"], "Atom"],
+      ["Which instrument measures atmospheric pressure?", ["Thermometer", "Barometer", "Hygrometer", "Altimeter"], "Barometer"],
+      ["Which part of the brain controls balance?", ["Cerebrum", "Cerebellum", "Medulla", "Hypothalamus"], "Cerebellum"],
+      ["What is the chemical formula of table salt?", ["NaCl", "KCl", "CaCO3", "Na2CO3"], "NaCl"],
+      ["Which planet is closest to the Sun?", ["Venus", "Mercury", "Earth", "Mars"], "Mercury"],
+      ["What process do plants use to make food?", ["Respiration", "Photosynthesis", "Fermentation", "Digestion"], "Photosynthesis"],
+      ["Which human blood cells carry oxygen?", ["White blood cells", "Platelets", "Red blood cells", "Plasma"], "Red blood cells"],
+      ["What is the SI unit of force?", ["Joule", "Newton", "Pascal", "Watt"], "Newton"],
+      ["What is the largest planet in our Solar System?", ["Earth", "Saturn", "Jupiter", "Neptune"], "Jupiter"],
+      ["Which acid is found in citrus fruits?", ["Acetic acid", "Sulfuric acid", "Citric acid", "Lactic acid"], "Citric acid"],
+      ["How many chromosomes do humans typically have?", ["44", "46", "48", "50"], "46"],
+      ["What kind of energy is stored in food?", ["Kinetic", "Chemical", "Nuclear", "Solar"], "Chemical"],
+      ["Which organ filters blood and produces urine?", ["Liver", "Kidney", "Pancreas", "Spleen"], "Kidney"],
+      ["What do bees collect from flowers?", ["Pollen and nectar", "Dew and dust", "Roots and stems", "Chlorophyll"], "Pollen and nectar"],
+      ["Which layer protects Earth from harmful UV rays?", ["Troposphere", "Mesosphere", "Ozone layer", "Ionosphere"], "Ozone layer"],
+      ["What is the main source of energy for Earth?", ["Moon", "Volcanoes", "Sun", "Wind"], "Sun"],
+      ["Which scientist proposed the law of gravity?", ["Einstein", "Newton", "Darwin", "Faraday"], "Newton"],
+      ["What is the unit of electric current?", ["Volt", "Ampere", "Ohm", "Watt"], "Ampere"],
+      ["What is the basic unit of life?", ["Atom", "Cell", "Tissue", "Organ"], "Cell"],
+      ["Which planet is known for extreme winds and appears blue?", ["Uranus", "Neptune", "Saturn", "Mercury"], "Neptune"],
+      ["What is the process of water vapor cooling into liquid called?", ["Evaporation", "Condensation", "Sublimation", "Precipitation"], "Condensation"],
+      ["Which branch of science studies living organisms?", ["Physics", "Chemistry", "Biology", "Geology"], "Biology"],
+      ["What is the normal human body temperature in Celsius?", ["35C", "36C", "37C", "38C"], "37C"],
+      ["What type of joint is the shoulder joint?", ["Hinge", "Ball-and-socket", "Pivot", "Gliding"], "Ball-and-socket"],
+      ["What is the center of an atom called?", ["Electron cloud", "Nucleus", "Proton ring", "Core shell"], "Nucleus"],
+      ["Which gas is used by humans for breathing?", ["Nitrogen", "Hydrogen", "Oxygen", "Carbon dioxide"], "Oxygen"],
+      ["Which planet is called Earth's twin due to similar size?", ["Mars", "Venus", "Jupiter", "Uranus"], "Venus"],
+      ["What is measured in hertz (Hz)?", ["Force", "Frequency", "Energy", "Mass"], "Frequency"],
+      ["Which metal is liquid at room temperature?", ["Mercury", "Iron", "Aluminum", "Copper"], "Mercury"],
+      ["What is the process of solid turning directly into gas?", ["Melting", "Condensation", "Sublimation", "Freezing"], "Sublimation"],
+      ["Which particle has a negative charge?", ["Proton", "Neutron", "Electron", "Photon"], "Electron"],
+      ["Which planet has the highest mountain Olympus Mons?", ["Earth", "Mars", "Jupiter", "Venus"], "Mars"]
+    ];
+
+    const historyQuestions = [
+      ["Who was the first President of the United States?", ["Abraham Lincoln", "George Washington", "John Adams", "Thomas Jefferson"], "George Washington"],
+      ["In which year did World War II end?", ["1944", "1945", "1946", "1947"], "1945"],
+      ["Which ancient civilization built the pyramids of Giza?", ["Romans", "Greeks", "Egyptians", "Persians"], "Egyptians"],
+      ["Who discovered sea route to India around the Cape of Good Hope for Europe?", ["Christopher Columbus", "Vasco da Gama", "Ferdinand Magellan", "Marco Polo"], "Vasco da Gama"],
+      ["The Great Wall is located in which country?", ["India", "China", "Mongolia", "Japan"], "China"],
+      ["Who was known as the Maid of Orleans?", ["Cleopatra", "Joan of Arc", "Queen Victoria", "Marie Curie"], "Joan of Arc"],
+      ["Which empire was ruled by Julius Caesar?", ["Ottoman Empire", "Roman Empire", "Mongol Empire", "British Empire"], "Roman Empire"],
+      ["In which year did Pakistan gain independence?", ["1945", "1946", "1947", "1948"], "1947"],
+      ["Who was the first man to walk on the Moon?", ["Yuri Gagarin", "Neil Armstrong", "Buzz Aldrin", "Michael Collins"], "Neil Armstrong"],
+      ["Which war was fought between North and South regions in the U.S.?", ["World War I", "American Civil War", "Vietnam War", "Korean War"], "American Civil War"],
+      ["Who was the founder of the Mongol Empire?", ["Kublai Khan", "Genghis Khan", "Attila", "Timur"], "Genghis Khan"],
+      ["The Renaissance began in which country?", ["France", "Germany", "Italy", "Spain"], "Italy"],
+      ["Who was the British Prime Minister during most of World War II?", ["Neville Chamberlain", "Winston Churchill", "Margaret Thatcher", "Tony Blair"], "Winston Churchill"],
+      ["Which famous ship sank in 1912 on its maiden voyage?", ["Britannic", "Lusitania", "Titanic", "Queen Mary"], "Titanic"],
+      ["Who wrote the Communist Manifesto with Friedrich Engels?", ["Lenin", "Karl Marx", "Stalin", "Trotsky"], "Karl Marx"],
+      ["Which civilization is associated with Machu Picchu?", ["Aztec", "Maya", "Inca", "Roman"], "Inca"],
+      ["Who was the first Emperor of Rome?", ["Julius Caesar", "Nero", "Augustus", "Constantine"], "Augustus"],
+      ["In which year did World War I begin?", ["1912", "1914", "1916", "1918"], "1914"],
+      ["Who was known as the Iron Lady?", ["Indira Gandhi", "Margaret Thatcher", "Angela Merkel", "Golda Meir"], "Margaret Thatcher"],
+      ["Which city was divided by a wall from 1961 to 1989?", ["Paris", "Rome", "Berlin", "Vienna"], "Berlin"],
+      ["Who was the first female Prime Minister of Pakistan?", ["Benazir Bhutto", "Fatima Jinnah", "Hina Rabbani Khar", "Maryam Nawaz"], "Benazir Bhutto"],
+      ["The Cold War mainly involved the USA and which other superpower?", ["China", "USSR", "Germany", "Japan"], "USSR"],
+      ["Who discovered America in 1492 for Europe?", ["Vasco da Gama", "Christopher Columbus", "Amerigo Vespucci", "James Cook"], "Christopher Columbus"],
+      ["Which empire was ruled by Suleiman the Magnificent?", ["Roman", "Ottoman", "Mughal", "Byzantine"], "Ottoman"],
+      ["Who was the first Caliph of Islam?", ["Umar (RA)", "Ali (RA)", "Abu Bakr (RA)", "Uthman (RA)"], "Abu Bakr (RA)"],
+      ["Which event started in France in 1789?", ["Industrial Revolution", "French Revolution", "Russian Revolution", "Reformation"], "French Revolution"],
+      ["Who was the first Mughal emperor of India?", ["Akbar", "Humayun", "Babur", "Shah Jahan"], "Babur"],
+      ["Which treaty ended World War I in 1919?", ["Treaty of Paris", "Treaty of Versailles", "Treaty of Vienna", "Treaty of Tordesillas"], "Treaty of Versailles"],
+      ["Who was known for the policy of non-violence in India?", ["Jawaharlal Nehru", "Mahatma Gandhi", "Subhas Chandra Bose", "Vallabhbhai Patel"], "Mahatma Gandhi"],
+      ["The Ottoman Empire was centered in which modern country?", ["Greece", "Turkey", "Egypt", "Iran"], "Turkey"],
+      ["Who was the last Emperor of Russia?", ["Peter the Great", "Nicholas II", "Alexander II", "Ivan IV"], "Nicholas II"],
+      ["Which civilization used cuneiform writing?", ["Egyptians", "Sumerians", "Romans", "Phoenicians"], "Sumerians"],
+      ["Who was the leader of Nazi Germany?", ["Adolf Hitler", "Benito Mussolini", "Joseph Stalin", "Francisco Franco"], "Adolf Hitler"],
+      ["Which famous battle took place in 1066 in England?", ["Battle of Hastings", "Battle of Waterloo", "Battle of Agincourt", "Battle of York"], "Battle of Hastings"],
+      ["Who was the first woman to fly solo across the Atlantic?", ["Valentina Tereshkova", "Amelia Earhart", "Sally Ride", "Bessie Coleman"], "Amelia Earhart"],
+      ["Who was the first Emperor of China?", ["Qin Shi Huang", "Han Wudi", "Kublai Khan", "Sun Yat-sen"], "Qin Shi Huang"],
+      ["Which war was fought between Athens and Sparta?", ["Punic Wars", "Peloponnesian War", "Trojan War", "Crimean War"], "Peloponnesian War"],
+      ["Who was the first Black President of South Africa?", ["Nelson Mandela", "Desmond Tutu", "Thabo Mbeki", "F.W. de Klerk"], "Nelson Mandela"],
+      ["Which civilization built Petra?", ["Nabataeans", "Romans", "Persians", "Hittites"], "Nabataeans"],
+      ["Who led the Soviet Union during much of World War II?", ["Lenin", "Stalin", "Khrushchev", "Brezhnev"], "Stalin"],
+      ["The Industrial Revolution began in which country?", ["Germany", "France", "Britain", "USA"], "Britain"],
+      ["Which explorer completed the first circumnavigation expedition?", ["Columbus", "Magellan-Elcano expedition", "James Cook", "Amerigo Vespucci"], "Magellan-Elcano expedition"],
+      ["Who was the first Secretary-General of the United Nations?", ["Dag Hammarskjold", "Trygve Lie", "U Thant", "Kofi Annan"], "Trygve Lie"],
+      ["In which year did the Berlin Wall fall?", ["1987", "1988", "1989", "1990"], "1989"],
+      ["Who was the ruler of France during the French Revolution's early phase?", ["Louis XIV", "Louis XV", "Louis XVI", "Napoleon"], "Louis XVI"],
+      ["Which battle marked Napoleon's final defeat?", ["Austerlitz", "Leipzig", "Waterloo", "Trafalgar"], "Waterloo"],
+      ["Which dynasty built the Taj Mahal?", ["Ottoman", "Safavid", "Mughal", "Qing"], "Mughal"],
+      ["Who was known as the Father of the Nation in Pakistan?", ["Allama Iqbal", "Liaquat Ali Khan", "Muhammad Ali Jinnah", "Ayub Khan"], "Muhammad Ali Jinnah"],
+      ["Which event happened on July 20, 1969?", ["First space shuttle launch", "Moon landing", "Sputnik launch", "ISS formation"], "Moon landing"],
+      ["Which civilization developed democracy in ancient times?", ["Sparta", "Athens", "Rome", "Carthage"], "Athens"]
+    ];
+
+    const geographyQuestions = [
+      ["What is the capital of Canada?", ["Toronto", "Ottawa", "Vancouver", "Montreal"], "Ottawa"],
+      ["Which is the largest ocean on Earth?", ["Indian", "Atlantic", "Pacific", "Arctic"], "Pacific"],
+      ["Mount Everest lies in which mountain range?", ["Andes", "Alps", "Himalayas", "Rockies"], "Himalayas"],
+      ["Which desert is the largest hot desert in the world?", ["Gobi", "Sahara", "Kalahari", "Arabian"], "Sahara"],
+      ["What is the longest river in the world (traditionally taught)?", ["Amazon", "Nile", "Yangtze", "Mississippi"], "Nile"],
+      ["Which country has the largest population?", ["India", "USA", "China", "Indonesia"], "India"],
+      ["What is the capital of Australia?", ["Sydney", "Melbourne", "Canberra", "Perth"], "Canberra"],
+      ["Which continent is known as the Dark Continent historically?", ["Asia", "Africa", "South America", "Europe"], "Africa"],
+      ["Which country is known as the Land of the Rising Sun?", ["China", "Japan", "Thailand", "South Korea"], "Japan"],
+      ["What is the smallest country in the world?", ["Monaco", "San Marino", "Vatican City", "Malta"], "Vatican City"],
+      ["Which U.S. state is known as the Sunshine State?", ["California", "Florida", "Texas", "Arizona"], "Florida"],
+      ["Which sea separates Europe and Africa?", ["Black Sea", "Mediterranean Sea", "Red Sea", "Arabian Sea"], "Mediterranean Sea"],
+      ["What is the capital of Brazil?", ["Rio de Janeiro", "Sao Paulo", "Brasilia", "Salvador"], "Brasilia"],
+      ["Which country has the most natural lakes?", ["Canada", "Russia", "USA", "Finland"], "Canada"],
+      ["Which river flows through Egypt?", ["Nile", "Congo", "Amazon", "Danube"], "Nile"],
+      ["What is the capital of Turkey?", ["Istanbul", "Ankara", "Izmir", "Bursa"], "Ankara"],
+      ["Which continent has the most countries?", ["Asia", "Africa", "Europe", "South America"], "Africa"],
+      ["Which country is both in Europe and Asia?", ["Spain", "Turkey", "Morocco", "Egypt"], "Turkey"],
+      ["Which is the deepest ocean trench?", ["Java Trench", "Mariana Trench", "Puerto Rico Trench", "Tonga Trench"], "Mariana Trench"],
+      ["Which country contains the city of Marrakech?", ["Tunisia", "Algeria", "Morocco", "Libya"], "Morocco"],
+      ["What is the capital of Saudi Arabia?", ["Jeddah", "Riyadh", "Mecca", "Dammam"], "Riyadh"],
+      ["Which mountain is the highest in Africa?", ["Mount Kenya", "Kilimanjaro", "Atlas Peak", "Ruwenzori"], "Kilimanjaro"],
+      ["What is the capital of Germany?", ["Munich", "Frankfurt", "Berlin", "Hamburg"], "Berlin"],
+      ["Which country has the city of Barcelona?", ["Portugal", "Italy", "Spain", "France"], "Spain"],
+      ["Which continent is Antarctica located in?", ["Europe", "North America", "Antarctica", "Asia"], "Antarctica"],
+      ["What is the capital of Egypt?", ["Alexandria", "Giza", "Cairo", "Luxor"], "Cairo"],
+      ["Which is the largest island in the world?", ["Madagascar", "Greenland", "Borneo", "New Guinea"], "Greenland"],
+      ["Which river passes through Baghdad?", ["Tigris", "Euphrates", "Jordan", "Indus"], "Tigris"],
+      ["What is the capital of Italy?", ["Milan", "Naples", "Rome", "Turin"], "Rome"],
+      ["Which country has the most volcanoes?", ["Japan", "Indonesia", "Iceland", "Chile"], "Indonesia"],
+      ["What is the capital of South Korea?", ["Busan", "Incheon", "Seoul", "Daegu"], "Seoul"],
+      ["Which country is home to the Andes mountains?", ["Chile", "Peru", "Argentina", "All of these"], "All of these"],
+      ["What is the capital of Russia?", ["St. Petersburg", "Moscow", "Kazan", "Sochi"], "Moscow"],
+      ["Which ocean lies between Africa and Australia?", ["Atlantic", "Arctic", "Indian", "Pacific"], "Indian"],
+      ["Which country has the city of Kyoto?", ["China", "Japan", "Vietnam", "South Korea"], "Japan"],
+      ["What is the capital of New Zealand?", ["Auckland", "Wellington", "Christchurch", "Hamilton"], "Wellington"],
+      ["Which African country is famous for Table Mountain?", ["Kenya", "South Africa", "Namibia", "Botswana"], "South Africa"],
+      ["Which is the largest continent by area?", ["Africa", "Asia", "North America", "Europe"], "Asia"],
+      ["Which country has the city of Dubai?", ["Saudi Arabia", "Qatar", "UAE", "Oman"], "UAE"],
+      ["What is the capital of China?", ["Shanghai", "Beijing", "Hong Kong", "Guangzhou"], "Beijing"],
+      ["Which country is the source of the Amazon River system?", ["Brazil", "Peru", "Colombia", "Ecuador"], "Peru"],
+      ["Which country borders both the Atlantic and Pacific oceans in North America?", ["USA", "Canada", "Mexico", "Panama"], "Canada"],
+      ["What is the capital of Argentina?", ["Cordoba", "Buenos Aires", "Rosario", "Mendoza"], "Buenos Aires"],
+      ["Which country is known for fjords?", ["Sweden", "Norway", "Finland", "Denmark"], "Norway"],
+      ["What is the capital of Indonesia?", ["Jakarta", "Bandung", "Surabaya", "Bali"], "Jakarta"],
+      ["Which country has the most time zones?", ["Russia", "USA", "France", "Australia"], "France"],
+      ["Which is the world's largest coral reef system?", ["Red Sea Reef", "Great Barrier Reef", "Belize Barrier Reef", "Maldives Reef"], "Great Barrier Reef"],
+      ["What is the capital of Nigeria?", ["Lagos", "Abuja", "Kano", "Ibadan"], "Abuja"],
+      ["Which strait separates Asia and North America?", ["Strait of Hormuz", "Bering Strait", "Malacca Strait", "Bosporus"], "Bering Strait"],
+      ["Which country has the city of Casablanca?", ["Algeria", "Morocco", "Tunisia", "Egypt"], "Morocco"]
+    ];
+
+    const islamicQuestions = [
+      ["How many pillars of Islam are there?", ["3", "4", "5", "6"], "5"],
+      ["How many daily obligatory prayers are there in Islam?", ["3", "4", "5", "6"], "5"],
+      ["In which city was Prophet Muhammad (PBUH) born?", ["Madinah", "Makkah", "Taif", "Jerusalem"], "Makkah"],
+      ["Which month do Muslims fast in?", ["Muharram", "Rajab", "Ramadan", "Shaban"], "Ramadan"],
+      ["What is the holy book of Islam?", ["Torah", "Bible", "Quran", "Psalms"], "Quran"],
+      ["What is the direction Muslims face during prayer?", ["East", "West", "Qibla", "North"], "Qibla"],
+      ["What is the name of the angel who brought revelation to prophets?", ["Mikail (AS)", "Jibreel (AS)", "Israfeel (AS)", "Izraeel (AS)"], "Jibreel (AS)"],
+      ["How many Surahs are in the Quran?", ["110", "112", "114", "116"], "114"],
+      ["What is the first Surah of the Quran?", ["Al-Baqarah", "Al-Ikhlas", "Al-Fatiha", "Yasin"], "Al-Fatiha"],
+      ["What is the longest Surah in the Quran?", ["Al-Imran", "An-Nisa", "Al-Baqarah", "Al-Maidah"], "Al-Baqarah"],
+      ["Which prayer is offered at dawn?", ["Dhuhr", "Asr", "Fajr", "Isha"], "Fajr"],
+      ["Which prayer is offered after sunset?", ["Maghrib", "Asr", "Isha", "Dhuhr"], "Maghrib"],
+      ["How many Rakats are in Fajr farz prayer?", ["2", "3", "4", "5"], "2"],
+      ["How many Rakats are in Dhuhr farz prayer?", ["2", "3", "4", "5"], "4"],
+      ["How many Rakats are in Asr farz prayer?", ["2", "3", "4", "5"], "4"],
+      ["How many Rakats are in Maghrib farz prayer?", ["2", "3", "4", "5"], "3"],
+      ["How many Rakats are in Isha farz prayer?", ["2", "3", "4", "5"], "4"],
+      ["How many times is Hajj obligatory for those who can afford it?", ["Once", "Twice", "Every year", "Never"], "Once"],
+      ["What is Zakat?", ["Optional charity", "Obligatory charity", "A prayer", "A pilgrimage"], "Obligatory charity"],
+      ["What is the Night of Power called?", ["Laylat al-Qadr", "Laylat al-Miraj", "Laylat al-Baraat", "Laylat al-Jumuah"], "Laylat al-Qadr"],
+      ["Which cave did Prophet Muhammad (PBUH) meditate in before prophethood?", ["Cave of Thawr", "Cave of Hira", "Cave of Uhud", "Cave of Safa"], "Cave of Hira"],
+      ["What event marks the migration from Makkah to Madinah?", ["Isra and Miraj", "Hijrah", "Badr", "Conquest of Makkah"], "Hijrah"],
+      ["Who was the first Caliph after Prophet Muhammad (PBUH)?", ["Umar (RA)", "Ali (RA)", "Abu Bakr (RA)", "Uthman (RA)"], "Abu Bakr (RA)"],
+      ["Who was known as Al-Farooq?", ["Abu Bakr (RA)", "Umar (RA)", "Uthman (RA)", "Ali (RA)"], "Umar (RA)"],
+      ["Who compiled the Quran into a single mushaf during his caliphate?", ["Abu Bakr (RA)", "Umar (RA)", "Uthman (RA)", "Ali (RA)"], "Uthman (RA)"],
+      ["What is the Islamic day of congregational prayer?", ["Monday", "Thursday", "Friday", "Sunday"], "Friday"],
+      ["What is the sermon before Friday prayer called?", ["Khutbah", "Bayan", "Dars", "Wazifa"], "Khutbah"],
+      ["What is the call to prayer called?", ["Iqamah", "Adhan", "Takbir", "Tasbih"], "Adhan"],
+      ["Who was the first Muadhin in Islam?", ["Abu Hurairah (RA)", "Bilal (RA)", "Salman (RA)", "Khalid (RA)"], "Bilal (RA)"],
+      ["What is the meaning of Islam?", ["Peace and submission to Allah", "War", "Tradition", "Journey"], "Peace and submission to Allah"],
+      ["How many months are in the Islamic lunar calendar?", ["10", "11", "12", "13"], "12"],
+      ["Which Islamic month is the first month of the Hijri year?", ["Safar", "Ramadan", "Muharram", "Rabi al-Awwal"], "Muharram"],
+      ["Which two cities are the holiest in Islam?", ["Makkah and Madinah", "Madinah and Jerusalem", "Makkah and Cairo", "Madinah and Damascus"], "Makkah and Madinah"],
+      ["What is the name of the well near the Kaaba?", ["Well of Zamzam", "Well of Hira", "Well of Uhud", "Well of Thawr"], "Well of Zamzam"],
+      ["What is the sacred mosque in Makkah called?", ["Masjid an-Nabawi", "Masjid al-Haram", "Masjid al-Aqsa", "Quba Mosque"], "Masjid al-Haram"],
+      ["Where is Masjid an-Nabawi located?", ["Makkah", "Madinah", "Jerusalem", "Taif"], "Madinah"],
+      ["Where is Masjid al-Aqsa located?", ["Makkah", "Madinah", "Jerusalem", "Cairo"], "Jerusalem"],
+      ["What is the declaration of faith in Islam called?", ["Shahadah", "Salah", "Sawm", "Zakat"], "Shahadah"],
+      ["How many times does a Muslim recite Surah Al-Fatiha in obligatory daily prayers at minimum?", ["9", "12", "17", "20"], "17"],
+      ["What is the pre-dawn meal in Ramadan called?", ["Iftar", "Suhoor", "Niyyah", "Tarawih"], "Suhoor"],
+      ["What is the meal to break fast called?", ["Iftar", "Suhoor", "Qiyam", "Nafl"], "Iftar"],
+      ["What are the special nightly prayers in Ramadan called?", ["Tahajjud", "Tarawih", "Duha", "Witr"], "Tarawih"],
+      ["How many prophets are mentioned by name in the Quran?", ["20", "23", "25", "30"], "25"],
+      ["Who is known as Khalilullah (Friend of Allah)?", ["Musa (AS)", "Isa (AS)", "Ibrahim (AS)", "Nuh (AS)"], "Ibrahim (AS)"],
+      ["Which prophet was swallowed by a big fish?", ["Yunus (AS)", "Yusuf (AS)", "Ayub (AS)", "Hud (AS)"], "Yunus (AS)"],
+      ["Which prophet could interpret dreams and became a minister in Egypt?", ["Musa (AS)", "Yusuf (AS)", "Dawud (AS)", "Sulayman (AS)"], "Yusuf (AS)"],
+      ["Which prophet received the Torah?", ["Isa (AS)", "Musa (AS)", "Ibrahim (AS)", "Dawud (AS)"], "Musa (AS)"],
+      ["What is the highest level of Paradise called?", ["Jannat al-Mawa", "Firdaus", "Jannat an-Naeem", "Dar as-Salam"], "Firdaus"],
+      ["On which occasion is Eid al-Adha celebrated?", ["End of Ramadan", "After Hajj", "Start of Muharram", "Mid Shaban"], "After Hajj"],
+      ["Which surah is known as the Heart of the Quran?", ["Al-Kahf", "Yasin", "Ar-Rahman", "Al-Mulk"], "Yasin"]
+    ];
+
+    const computerScienceQuestions = [
+      ["What does CPU stand for?", ["Central Process Unit", "Central Processing Unit", "Computer Processing Unit", "Core Processing Unit"], "Central Processing Unit"],
+      ["What does RAM stand for?", ["Random Access Memory", "Read Access Memory", "Rapid Access Memory", "Run Access Memory"], "Random Access Memory"],
+      ["Which number system does a computer primarily use?", ["Decimal", "Binary", "Octal", "Hexadecimal"], "Binary"],
+      ["What is the brain of the computer?", ["Monitor", "Keyboard", "CPU", "Mouse"], "CPU"],
+      ["Which device is used to point and click on screen items?", ["Scanner", "Mouse", "Printer", "Speaker"], "Mouse"],
+      ["What does URL stand for?", ["Universal Resource Link", "Uniform Resource Locator", "Unified Route Locator", "User Resource Link"], "Uniform Resource Locator"],
+      ["Which language is mainly used to style web pages?", ["HTML", "Python", "CSS", "SQL"], "CSS"],
+      ["Which language is used to structure web pages?", ["Java", "HTML", "C++", "PHP"], "HTML"],
+      ["Which language commonly adds interactivity to web pages?", ["JavaScript", "C", "R", "Swift"], "JavaScript"],
+      ["What does HTTP stand for?", ["HyperText Transfer Protocol", "HighText Transfer Protocol", "Hyper Transfer Text Process", "HyperTool Transfer Protocol"], "HyperText Transfer Protocol"],
+      ["What does HTTPS provide in addition to HTTP?", ["More speed only", "Encryption and security", "Offline mode", "More storage"], "Encryption and security"],
+      ["What is an operating system?", ["A hardware chip", "System software managing hardware and apps", "A web browser", "A programming language"], "System software managing hardware and apps"],
+      ["Which of these is an operating system?", ["Windows", "Google", "Intel", "Oracle"], "Windows"],
+      ["What does GUI stand for?", ["General User Interface", "Graphical User Interface", "Global User Interface", "Graphic Utility Interface"], "Graphical User Interface"],
+      ["Which shortcut is commonly used to copy text?", ["Ctrl + X", "Ctrl + C", "Ctrl + V", "Ctrl + Z"], "Ctrl + C"],
+      ["Which shortcut is commonly used to paste text?", ["Ctrl + C", "Ctrl + P", "Ctrl + V", "Ctrl + A"], "Ctrl + V"],
+      ["What is a browser?", ["A CPU", "A program to access websites", "A file manager", "A spreadsheet"], "A program to access websites"],
+      ["Which one is a web browser?", ["Chrome", "Excel", "Photoshop", "Notepad"], "Chrome"],
+      ["Which of these is a programming language?", ["Python", "JPEG", "PDF", "HTML5 video"], "Python"],
+      ["What does AI stand for?", ["Auto Intelligence", "Artificial Intelligence", "Applied Internet", "Array Interface"], "Artificial Intelligence"],
+      ["What is an algorithm?", ["A random guess", "A step-by-step problem-solving method", "A computer monitor", "A hardware port"], "A step-by-step problem-solving method"],
+      ["What is a variable in programming?", ["A fixed value only", "A named storage for data", "A printer command", "A network cable"], "A named storage for data"],
+      ["What symbol is commonly used for comments in JavaScript single line?", ["//", "##", "<!--", "**"], "//"],
+      ["Which data type stores true/false values?", ["String", "Integer", "Boolean", "Float"], "Boolean"],
+      ["What is debugging?", ["Deleting code", "Finding and fixing code errors", "Drawing UI", "Compiling hardware"], "Finding and fixing code errors"],
+      ["What is a loop used for?", ["Ending program", "Repeating instructions", "Encrypting data", "Connecting network"], "Repeating instructions"],
+      ["What is an IP address?", ["A type of monitor", "A unique network identifier", "A text editor", "A motherboard slot"], "A unique network identifier"],
+      ["Which protocol is used to send emails?", ["SMTP", "FTP", "SSH", "SNMP"], "SMTP"],
+      ["What does DNS do?", ["Stores pictures", "Translates domain names to IP addresses", "Compiles code", "Creates backups"], "Translates domain names to IP addresses"],
+      ["What is cloud computing?", ["Using only local files", "Delivering computing services over the internet", "A graphics card feature", "A keyboard layout"], "Delivering computing services over the internet"],
+      ["What is phishing?", ["A safe login method", "A cyber attack to steal information", "A file format", "A coding framework"], "A cyber attack to steal information"],
+      ["What is malware?", ["Useful app", "Malicious software", "A motherboard", "A coding style"], "Malicious software"],
+      ["What does SQL stand for?", ["Structured Query Language", "Simple Query Logic", "System Query Language", "Structured Queue Language"], "Structured Query Language"],
+      ["Which SQL command retrieves data?", ["UPDATE", "DELETE", "SELECT", "INSERT"], "SELECT"],
+      ["Which SQL command adds new records?", ["INSERT", "CREATE", "REMOVE", "PUSH"], "INSERT"],
+      ["What is a database?", ["A hardware fan", "An organized collection of data", "A display cable", "A compiler"], "An organized collection of data"],
+      ["What does API stand for?", ["Application Programming Interface", "Applied Program Internet", "Advanced Programming Integration", "Application Process Interface"], "Application Programming Interface"],
+      ["What is version control used for?", ["Playing videos", "Tracking code changes", "Designing logos", "Increasing RAM"], "Tracking code changes"],
+      ["Which tool is widely used for version control?", ["Git", "Figma", "Nginx", "Excel"], "Git"],
+      ["What is open-source software?", ["Software with hidden code", "Software whose source code is publicly available", "Paid-only software", "Pirated software"], "Software whose source code is publicly available"],
+      ["What does IDE stand for?", ["Integrated Development Environment", "Internal Data Engine", "Internet Development Editor", "Integrated Design Engine"], "Integrated Development Environment"],
+      ["Which one is an IDE?", ["VS Code", "PNG", "Router", "HDMI"], "VS Code"],
+      ["What is recursion in programming?", ["A design pattern only", "A function calling itself", "A network protocol", "A memory leak"], "A function calling itself"],
+      ["What is a compiler?", ["Converts source code to machine code", "A web server", "A graphics tablet", "A browser extension"], "Converts source code to machine code"],
+      ["What is an array?", ["A type of virus", "A collection of ordered elements", "A processor brand", "A network cable"], "A collection of ordered elements"],
+      ["What is OOP?", ["Object-Oriented Programming", "Online Output Protocol", "Open Operating Process", "Object Output Program"], "Object-Oriented Programming"],
+      ["Which is a common OOP concept?", ["Inheritance", "Indexing", "Rasterization", "Caching only"], "Inheritance"],
+      ["What is a function in programming?", ["A hardware part", "A reusable block of code", "A database table", "An image format"], "A reusable block of code"],
+      ["What is two-factor authentication (2FA)?", ["Two passwords same screen", "Two-step identity verification", "Two users one account", "Two antiviruses"], "Two-step identity verification"],
+      ["What does VPN stand for?", ["Virtual Private Network", "Verified Public Network", "Virtual Protocol Node", "Variable Private Node"], "Virtual Private Network"]
+    ];
+
+    const toQuestionObjects = (items, categoryLabel) => items.map(([question, options, answer, explanation]) => ({
+      question,
+      options,
+      answer,
+      explanation: explanation || `Info Point: The correct answer is "${answer}". This question checks a core concept in ${categoryLabel} to strengthen your understanding.`
+    }));
+
+    const quizData = {
+      science: {
+        label: "Science & Nature",
+        questions: toQuestionObjects(scienceQuestions, "Science & Nature")
+      },
+      history: {
+        label: "World History",
+        questions: toQuestionObjects(historyQuestions, "World History")
+      },
+      geography: {
+        label: "Geography",
+        questions: toQuestionObjects(geographyQuestions, "Geography")
+      },
+      islamic: {
+        label: "Islamic Studies",
+        questions: toQuestionObjects(islamicQuestions, "Islamic Studies")
+      },
+      computer_science: {
+        label: "Computer Science",
+        questions: toQuestionObjects(computerScienceQuestions, "Computer Science")
+      }
+    };
+
+    Object.keys(quizData).forEach((key) => {
+      const count = quizData[key].questions.length;
+      if (count !== 50) {
+        console.error(`${quizData[key].label} has ${count} questions. Expected 50.`);
+      }
+    });
+
+    const STORAGE_KEY = "qfa_player_profile_v1";
+
+    const startModal = document.getElementById("startModal");
+    const playerNameInput = document.getElementById("playerName");
+    const categoryButtons = document.querySelectorAll(".category-btn");
+    const startBtn = document.getElementById("startBtn");
+    const startError = document.getElementById("startError");
+    const openStartBtn = document.getElementById("openStartBtn");
+    const retryWeakBtn = document.getElementById("retryWeakBtn");
+    const homePanel = document.getElementById("homePanel");
+    const insightsPanel = document.getElementById("insightsPanel");
+    const welcomeText = document.getElementById("welcomeText");
+    const statsAttempts = document.getElementById("statsAttempts");
+    const statsFavorite = document.getElementById("statsFavorite");
+    const statsBest = document.getElementById("statsBest");
+    const statsTimeSpent = document.getElementById("statsTimeSpent");
+    const motivationText = document.getElementById("motivationText");
+    const categorySummary = document.getElementById("categorySummary");
+
+    const quizCard = document.querySelector(".quiz-card");
+    const quizTitle = document.getElementById("quizTitle");
+    const playerMeta = document.getElementById("playerMeta");
+    const scoreEl = document.getElementById("score");
+    const progressText = document.getElementById("progressText");
+    const categoryText = document.getElementById("categoryText");
+    const progressFill = document.getElementById("progressFill");
+    const questionText = document.getElementById("questionText");
+    const answersContainer = document.getElementById("answers");
+    const feedback = document.getElementById("feedback");
+    const infoPoint = document.getElementById("infoPoint");
+    const nextBtn = document.getElementById("nextBtn");
+    const result = document.getElementById("result");
+    const resultText = document.getElementById("resultText");
+    const restartCategoryBtn = document.getElementById("restartCategoryBtn");
+    const changeCategoryBtn = document.getElementById("changeCategoryBtn");
+
+    function createDefaultProfile() {
+      return {
+        name: "",
+        lastSelectedCategory: "",
+        totalSessions: 0,
+        totalTimeSpentMs: 0,
+        categories: {},
+        mistakeBook: {}
+      };
+    }
+
+    function loadProfile() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return createDefaultProfile();
+        const parsed = JSON.parse(raw);
+        return {
+          ...createDefaultProfile(),
+          ...parsed,
+          categories: parsed.categories || {},
+          mistakeBook: parsed.mistakeBook || {}
+        };
+      } catch (error) {
+        console.error("Failed to parse local profile:", error);
+        return createDefaultProfile();
+      }
+    }
+
+    let profile = loadProfile();
+
+    const state = {
+      playerName: profile.name || "",
+      selectedCategory: "",
+      currentQuestions: [],
+      currentIndex: 0,
+      score: 0,
+      answered: false,
+      wrongThisAttempt: 0,
+      wrongQuestionKeys: new Set(),
+      quizStartTime: 0,
+      attemptTracked: false
+    };
+
+    function saveProfile() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+    }
+
+    function getCategoryStats(category) {
+      if (!profile.categories[category]) {
+        profile.categories[category] = {
+          attempts: 0,
+          openCount: 0,
+          totalScore: 0,
+          totalQuestions: 0,
+          bestScore: 0,
+          lastScore: 0,
+          wrongAnswers: 0,
+          lastWrongAnswers: 0,
+          timeSpentMs: 0
+        };
+      }
+      return profile.categories[category];
+    }
+
+    function formatMinutes(ms) {
+      const minutes = Math.round(ms / 60000);
+      return minutes <= 0 ? "<1m" : `${minutes}m`;
+    }
+
+    function resetProgressUI() {
+      progressText.textContent = "Question 0 / 50";
+      categoryText.textContent = "Category: -";
+      scoreEl.textContent = "Score: 0";
+      progressFill.style.width = "0%";
+      questionText.textContent = "Please start from popup.";
+      answersContainer.innerHTML = "";
+      feedback.textContent = "";
+      infoPoint.textContent = "";
+      infoPoint.className = "info-point hidden";
+      playerMeta.textContent = "Review your progress and start a quiz.";
+    }
+
+    function resetToHome() {
+      homePanel.classList.remove("hidden");
+      insightsPanel.classList.remove("hidden");
+      quizCard.classList.add("hidden");
+      result.classList.add("hidden");
+      startModal.classList.add("hidden");
+      resetProgressUI();
+    }
+
+    function selectCategory(category) {
+      state.selectedCategory = category;
+      categoryButtons.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.category === category);
+      });
+    }
+
+    function openStartModal(preferredCategory = "") {
+      startError.textContent = "";
+      startModal.classList.remove("hidden");
+      playerNameInput.value = profile.name || state.playerName || "";
+      selectCategory(preferredCategory || profile.lastSelectedCategory || "");
+      playerNameInput.focus();
+    }
+
+    function closeStartModal() {
+      startModal.classList.add("hidden");
+    }
+
+    function findFavoriteCategory() {
+      let best = "";
+      let attempts = 0;
+      Object.keys(quizData).forEach((category) => {
+        const stats = profile.categories[category];
+        if (stats && stats.openCount > attempts) {
+          attempts = stats.openCount;
+          best = category;
+        }
+      });
+      return best;
+    }
+
+    function findBestScoringCategory() {
+      let best = "";
+      let bestPct = -1;
+      Object.keys(quizData).forEach((category) => {
+        const stats = profile.categories[category];
+        if (!stats || !stats.totalQuestions) return;
+        const pct = Math.round((stats.bestScore / quizData[category].questions.length) * 100);
+        if (pct > bestPct) {
+          bestPct = pct;
+          best = category;
+        }
+      });
+      return { category: best, pct: bestPct };
+    }
+
+    function findWeakCategoryForRetry() {
+      let selected = "";
+      let mostWrong = 0;
+      Object.keys(quizData).forEach((category) => {
+        const stats = profile.categories[category];
+        if (!stats || !stats.wrongAnswers) return;
+        if (stats.wrongAnswers > mostWrong) {
+          mostWrong = stats.wrongAnswers;
+          selected = category;
+        }
+      });
+      return selected;
+    }
+
+    function renderCategorySummary() {
+      const rows = Object.keys(quizData)
+        .map((category) => {
+          const stats = profile.categories[category];
+          if (!stats || !stats.attempts) return "";
+          return `<div class="summary-row"><span>${quizData[category].label}</span><span>${stats.lastScore}/50 (Attempts: ${stats.attempts}, Opens: ${stats.openCount})</span></div>`;
+        })
+        .filter(Boolean);
+      categorySummary.innerHTML = rows.length
+        ? rows.join("")
+        : "<p class='summary-empty'>No category attempts have been saved yet.</p>";
+    }
+
+    function renderInsights() {
+      const totalAttempts = Object.values(profile.categories).reduce((acc, item) => acc + (item.attempts || 0), 0);
+      const favoriteCategory = findFavoriteCategory();
+      const bestCategory = findBestScoringCategory();
+      const weakCategory = findWeakCategoryForRetry();
+
+      welcomeText.textContent = profile.name ? `Welcome back, ${profile.name}!` : "Welcome!";
+      statsAttempts.textContent = String(totalAttempts);
+      statsFavorite.textContent = favoriteCategory ? quizData[favoriteCategory].label : "-";
+      statsBest.textContent = bestCategory.category ? `${quizData[bestCategory.category].label} (${bestCategory.pct}%)` : "-";
+      statsTimeSpent.textContent = formatMinutes(profile.totalTimeSpentMs);
+
+      if (weakCategory) {
+        const weakStats = getCategoryStats(weakCategory);
+        motivationText.textContent = `You missed ${weakStats.lastWrongAnswers} answers in ${quizData[weakCategory].label}. Try again and improve your score.`;
+        retryWeakBtn.classList.remove("hidden");
+        retryWeakBtn.dataset.category = weakCategory;
+      } else {
+        motivationText.textContent = "No mistakes tracked yet. Start now and build your progress.";
+        retryWeakBtn.classList.add("hidden");
+        retryWeakBtn.dataset.category = "";
+      }
+
+      renderCategorySummary();
+    }
+
+    function trackMistake(currentQuestion) {
+      const questionKey = `${state.selectedCategory}::${currentQuestion.question}`;
+      if (state.wrongQuestionKeys.has(questionKey)) return;
+      state.wrongQuestionKeys.add(questionKey);
+
+      if (!profile.mistakeBook[questionKey]) {
+        profile.mistakeBook[questionKey] = {
+          category: state.selectedCategory,
+          question: currentQuestion.question,
+          wrongCount: 0,
+          correctAnswer: currentQuestion.answer
+        };
+      }
+      profile.mistakeBook[questionKey].wrongCount += 1;
+      saveProfile();
+    }
+
+    function finalizeAttempt() {
+      if (state.attemptTracked || !state.selectedCategory || !state.currentQuestions.length) return;
+      const categoryStats = getCategoryStats(state.selectedCategory);
+      const total = state.currentQuestions.length;
+      const timeSpentMs = Math.max(0, Date.now() - state.quizStartTime);
+
+      categoryStats.attempts += 1;
+      categoryStats.totalScore += state.score;
+      categoryStats.totalQuestions += total;
+      categoryStats.bestScore = Math.max(categoryStats.bestScore, state.score);
+      categoryStats.lastScore = state.score;
+      categoryStats.wrongAnswers += state.wrongThisAttempt;
+      categoryStats.lastWrongAnswers = state.wrongThisAttempt;
+      categoryStats.timeSpentMs += timeSpentMs;
+
+      profile.totalSessions += 1;
+      profile.totalTimeSpentMs += timeSpentMs;
+      profile.lastSelectedCategory = state.selectedCategory;
+      profile.name = state.playerName;
+      saveProfile();
+
+      state.attemptTracked = true;
+      renderInsights();
+    }
+
+    function beginQuizSession(shouldTrackOpen = true) {
+      state.currentQuestions = quizData[state.selectedCategory].questions;
+      state.currentIndex = 0;
+      state.score = 0;
+      state.answered = false;
+      state.wrongThisAttempt = 0;
+      state.wrongQuestionKeys = new Set();
+      state.quizStartTime = Date.now();
+      state.attemptTracked = false;
+
+      if (shouldTrackOpen) {
+        const categoryStats = getCategoryStats(state.selectedCategory);
+        categoryStats.openCount += 1;
+        saveProfile();
+      }
+
+      closeStartModal();
+      homePanel.classList.add("hidden");
+      insightsPanel.classList.add("hidden");
+      result.classList.add("hidden");
+      quizCard.classList.remove("hidden");
+
+      quizTitle.textContent = "General Knowledge Quiz";
+      categoryText.textContent = `Category: ${quizData[state.selectedCategory].label}`;
+      playerMeta.textContent = `${state.playerName} | ${quizData[state.selectedCategory].label}`;
+      renderQuestion();
+    }
+
+    function startQuiz() {
+      const playerName = (playerNameInput.value.trim() || profile.name || "").trim();
+      if (!playerName) {
+        startError.textContent = "Please enter your name.";
+        return;
+      }
+      if (!state.selectedCategory) {
+        startError.textContent = "Please select a category.";
+        return;
+      }
+
+      state.playerName = playerName;
+      profile.name = playerName;
+      profile.lastSelectedCategory = state.selectedCategory;
+      saveProfile();
+      beginQuizSession(true);
+    }
+
+    function renderQuestion() {
+      const total = state.currentQuestions.length;
+      const current = state.currentQuestions[state.currentIndex];
+
+      progressText.textContent = `Question ${state.currentIndex + 1} / ${total}`;
+      scoreEl.textContent = `Score: ${state.score}`;
+      progressFill.style.width = `${((state.currentIndex + 1) / total) * 100}%`;
+
+      questionText.textContent = current.question;
+      answersContainer.innerHTML = "";
+      feedback.textContent = "";
+      feedback.className = "feedback";
+      infoPoint.textContent = "";
+      infoPoint.className = "info-point hidden";
+      state.answered = false;
+      nextBtn.disabled = true;
+
+      current.options.forEach((option) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "answer-btn";
+        btn.textContent = option;
+        btn.addEventListener("click", () => handleAnswer(btn, option, current));
+        answersContainer.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(button, selected, currentQuestion) {
+      if (state.answered) return;
+      state.answered = true;
+      const correct = currentQuestion.answer;
+
+      const buttons = answersContainer.querySelectorAll(".answer-btn");
+      buttons.forEach((btn) => {
+        btn.disabled = true;
+        if (btn.textContent === correct) {
+          btn.classList.add("correct");
+        }
+      });
+
+      if (selected === correct) {
+        state.score += 1;
+        feedback.textContent = "Correct answer.";
+        feedback.classList.add("ok");
+        button.classList.add("correct");
+        infoPoint.textContent = "";
+        infoPoint.className = "info-point hidden";
+      } else {
+        state.wrongThisAttempt += 1;
+        trackMistake(currentQuestion);
+        feedback.textContent = `Wrong answer. Correct: ${correct}`;
+        feedback.classList.add("bad");
+        button.classList.add("wrong");
+        infoPoint.textContent = currentQuestion.explanation;
+        infoPoint.className = "info-point";
+      }
+
+      scoreEl.textContent = `Score: ${state.score}`;
+      nextBtn.disabled = false;
+    }
+
+    function showResult() {
+      finalizeAttempt();
+      quizCard.classList.add("hidden");
+      result.classList.remove("hidden");
+      progressFill.style.width = "100%";
+
+      const total = state.currentQuestions.length;
+      const percent = Math.round((state.score / total) * 100);
+      const wrongAnswers = total - state.score;
+      resultText.textContent = `${state.playerName}, you scored ${state.score} out of ${total} (${percent}%) in ${quizData[state.selectedCategory].label}. You missed ${wrongAnswers} answers. Keep practicing.`;
+    }
+
+    categoryButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        selectCategory(btn.dataset.category);
+        startError.textContent = "";
+      });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (state.currentIndex < state.currentQuestions.length - 1) {
+        state.currentIndex += 1;
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    });
+
+    restartCategoryBtn.addEventListener("click", () => {
+      result.classList.add("hidden");
+      beginQuizSession(true);
+    });
+
+    changeCategoryBtn.addEventListener("click", () => {
+      resetToHome();
+      openStartModal();
+    });
+
+    openStartBtn.addEventListener("click", () => openStartModal());
+
+    retryWeakBtn.addEventListener("click", () => {
+      const category = retryWeakBtn.dataset.category || profile.lastSelectedCategory || "";
+      openStartModal(category);
+    });
+
+    startBtn.addEventListener("click", startQuiz);
+
+    playerNameInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") startQuiz();
+    });
+
+    startModal.addEventListener("click", (event) => {
+      if (event.target === startModal) {
+        closeStartModal();
+      }
+    });
+
+    renderInsights();
+    resetToHome();
